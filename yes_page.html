@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for being my Valentine! ❤️">
+    <meta name="theme-color" content="#2CA6A4">
+    <meta property="og:title" content="Happy Valentine's Day! ❤️">
+    <meta property="og:description" content="Thank you for being my Valentine! ❤️">
+    <meta property="og:type" content="website">
+    
+    <title>Yay! You said Yes! ❤️</title>
+    <link rel="stylesheet" href="./yes_style.css">
+    <link rel="icon" type="image/png" href="https://em-content.zobj.net/source/microsoft-teams/337/heart-with-ribbon_1f49d.png">
+</head>
+<body>
+    <div class="hearts-background"></div>
+    <div class="container">
+        <h1 class="success-text">Yay! You said Yes! 🎉</h1>
+        <div class="content-wrapper">
+            <div class="heart-container">
+                <div class="big-heart">❤️</div>
+            </div>
+            <div class="gif-container">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif" alt="Celebrating hearts animation">
+            </div>
+        </div>
+        <p class="love-message">Thank you for making me the happiest person! ❤️</p>
+        <div class="celebration-hearts"></div>
+    </div>
+    <script>
+        // Create floating hearts background
+        function createFloatingHearts() {
+            const heartsBackground = document.querySelector('.hearts-background');
+            const colors = ['#FF0000', '#FF69B4', '#FF1493', '#FF4500'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heartsBackground.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 5000);
+            }, 300);
+        }
+
+        // Create pulsing hearts around the message
+        function createPulsingHearts() {
+            const celebrationHearts = document.querySelector('.celebration-hearts');
+            const numHearts = 12;
+            
+            for (let i = 0; i < numHearts; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'pulsing-heart';
+                heart.innerHTML = '❤️';
+                
+                const angle = (i / numHearts) * 2 * Math.PI;
+                const radius = 100;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                
+                heart.style.transform = `translate(${x}px, ${y}px)`;
+                heart.style.animationDelay = (i * 0.1) + 's';
+                
+                celebrationHearts.appendChild(heart);
+            }
+        }
+
+        // Create heart rain effect
+        function createHeartRain() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-rain';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 3000);
+            }, 100);
+        }
+
+        // Initialize all heart animations
+        window.onload = () => {
+            createFloatingHearts();
+            createPulsingHearts();
+            createHeartRain();
+            
+            // Add beating animation to the big heart
+            const bigHeart = document.querySelector('.big-heart');
+            bigHeart.style.animation = 'heartBeat 1.5s infinite';
+        };
+    </script>
+</body>
+</html>

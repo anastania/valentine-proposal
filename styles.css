@@ -1,0 +1,138 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #9DD9D2 0%, #2CA6A4 100%);
+    font-family: 'Pacifico', cursive;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(44, 166, 164, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    color: #2CA6A4;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.yes-button, .no-button {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.2em;
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.yes-button {
+    background: #5EC2B7;
+    color: white;
+    box-shadow: 0 4px 15px rgba(94, 194, 183, 0.3);
+    z-index: 2;
+}
+
+.yes-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(94, 194, 183, 0.4);
+    background: #2CA6A4;
+}
+
+.no-button {
+    background: #79BCB8;
+    color: white;
+    z-index: 10000;
+    box-shadow: 0 4px 15px rgba(121, 188, 184, 0.3);
+}
+
+.no-button:hover {
+    background: #9DD9D2;
+    transform: scale(0.95);
+}
+
+.gif_container {
+    margin-top: 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(44, 166, 164, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.gif_container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+/* Heart particles */
+.heart-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .yes-button, .no-button {
+        width: 100%;
+    }
+    
+    /* Ensure No button stays visible on mobile */
+    .no-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: auto;
+    }
+}
